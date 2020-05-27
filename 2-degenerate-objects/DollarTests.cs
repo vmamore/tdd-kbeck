@@ -11,6 +11,15 @@ namespace degenerate_objects
             five.times(2);
             Assert.Equal(10, five.Amount);
         }
+
+        [Fact]
+        public void TestMoreThanOneMultiplication(){
+            Dollar five = new Dollar(5);
+            Dollar product = five.times(2);
+            Assert.Equal(10, product.Amount);
+            product = five.times(3);
+            Assert.Equal(15, product.Amount);
+        }
     }
 
     public class Dollar {
@@ -19,8 +28,9 @@ namespace degenerate_objects
             this.Amount = amount;
         }
 
-        public void times(int multiplier){
+        public Dollar times(int multiplier){
             this.Amount *= multiplier;
+            return null;
         }
     }
 }
