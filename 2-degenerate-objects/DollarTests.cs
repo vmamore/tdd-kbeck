@@ -8,8 +8,8 @@ namespace degenerate_objects
         [Fact]
         public void TestMultiplication(){
             Dollar five = new Dollar(5);
-            five.times(2);
-            Assert.Equal(10, five.Amount);
+            Dollar result = five.times(2);
+            Assert.Equal(10, result.Amount);
         }
 
         [Fact]
@@ -29,8 +29,7 @@ namespace degenerate_objects
         }
 
         public Dollar times(int multiplier){
-            this.Amount *= multiplier;
-            return null;
+            return new Dollar(this.Amount * multiplier);
         }
     }
 }
