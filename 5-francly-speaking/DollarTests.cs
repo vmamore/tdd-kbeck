@@ -9,8 +9,8 @@ namespace fraancly_speaking
         public void TestMoreThanOneMultiplication()
         {
             Dollar five = new Dollar(5);
-            Assert.Equal(new Dollar(10), five.times(2));;
-            Assert.Equal(new Dollar(15), five.times(3));
+            Assert.Equal(new Dollar(10), five.Times(2));;
+            Assert.Equal(new Dollar(15), five.Times(3));
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace fraancly_speaking
             this.Amount = amount;
         }
 
-        public Dollar times(int multiplier)
+        public Dollar Times(int multiplier)
         {
             return new Dollar(this.Amount * multiplier);
         }
