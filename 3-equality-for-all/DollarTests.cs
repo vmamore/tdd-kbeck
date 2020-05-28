@@ -27,6 +27,7 @@ namespace equality_for_all
         public void TestEquality()
         {
             Assert.True(new Dollar(5).Equals(new Dollar(5)));
+            Assert.False(new Dollar(5).Equals(new Dollar(6)));
         }
     }
 
@@ -45,7 +46,8 @@ namespace equality_for_all
 
         public override bool Equals(object obj)
         {
-            return true;
+            Dollar dollar = (Dollar)obj;
+            return this.Amount == dollar.Amount;
         }
     }
 }
