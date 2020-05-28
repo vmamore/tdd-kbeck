@@ -6,21 +6,11 @@ namespace privacy
     public class DollarTests
     {
         [Fact]
-        public void TestMultiplication()
-        {
-            Dollar five = new Dollar(5);
-            Dollar result = five.times(2);
-            Assert.Equal(10, result.Amount);
-        }
-
-        [Fact]
         public void TestMoreThanOneMultiplication()
         {
             Dollar five = new Dollar(5);
-            Dollar product = five.times(2);
-            Assert.Equal(10, product.Amount);
-            product = five.times(3);
-            Assert.Equal(15, product.Amount);
+            Assert.Equal(new Dollar(10), five.times(2));;
+            Assert.Equal(new Dollar(15), five.times(3));
         }
 
         [Fact]
@@ -33,7 +23,7 @@ namespace privacy
 
     public class Dollar
     {
-        public int Amount { get; private set; }
+        private int Amount;
         public Dollar(int amount)
         {
             this.Amount = amount;
