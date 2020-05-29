@@ -32,11 +32,5 @@ namespace equality_for_all_redux
         {
             return new Dollar(this.Amount * multiplier);
         }
-
-        public override bool Equals(object obj)
-        {
-            Dollar dollar = (Dollar)obj;
-            return this.Amount == dollar.Amount;
-        }
     }
 }
