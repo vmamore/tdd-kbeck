@@ -6,8 +6,8 @@ namespace equality_for_all_redux
 
         public override bool Equals(object obj)
         {
-            Money dollar = (Money)obj;
-            return this.Amount == dollar.Amount;
+            Money money = (Money)obj;
+            return this.Amount == money.Amount;
         }
     }
 }

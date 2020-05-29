@@ -23,11 +23,5 @@ namespace equality_for_all_redux
         {
             return new Franc(this.Amount * multiplier);
         }
-
-        public override bool Equals(object obj)
-        {
-            Franc dollar = (Franc)obj;
-            return this.Amount == dollar.Amount;
-        }
     }
 }
