@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace equality_for_all_redux
+namespace apples_and_oranges
 {
     public class FrancTests
     {
