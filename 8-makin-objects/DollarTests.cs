@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace equality_for_all_redux
+namespace makin_objects
 {
     public class DollarTests
     {
@@ -19,6 +19,14 @@ namespace equality_for_all_redux
             Assert.True(new Dollar(5).Equals(new Dollar(5)));
             Assert.False(new Dollar(5).Equals(new Dollar(6)));
         }
+
+        [Fact]
+        public void TestMultiplication()
+        {
+            Money five = Money.dollar(5);
+            Assert.Equal(new Dollar(10), five.Times(2));
+            Assert.Equal(new Dollar(15), five.Times(3));
+        }
     }
 
     public class Dollar : Money
@@ -28,7 +36,7 @@ namespace equality_for_all_redux
             this.Amount = amount;
         }
 
-        public Dollar Times(int multiplier)
+        public override Money Times(int multiplier)
         {
             return new Dollar(this.Amount * multiplier);
         }
