@@ -11,16 +11,16 @@ namespace the_root_of_all_evil
             this._currency = currency;
         }
 
-        public static Dollar dollar(int amount, string currency){
-            return new Dollar(amount, currency);
+        public static Money dollar(int amount){
+            return new Money(amount, "USD");
         }
 
-        public static Franc franc(int amount, string currency){
-            return new Franc(amount, currency);
+        public static Money franc(int amount){
+            return new Money(amount, "CHF");
         }
 
         public Money Times(int multiplier){
-            return null;
+            return new Money(Amount * multiplier, Currency);
         }
 
         public override bool Equals(object obj)
