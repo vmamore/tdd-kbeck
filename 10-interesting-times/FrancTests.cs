@@ -6,9 +6,9 @@ namespace interesting_times
     {
         [Fact]
         public void TestFrancMultiplication(){
-            Franc five = new Franc(5, null);
-            Assert.Equal(new Franc(10, null), five.Times(2));
-            Assert.Equal(new Franc(15, null), five.Times(3));
+            Franc five = new Franc(5, "CHF");
+            Assert.Equal(new Franc(10, "CHF"), five.Times(2));
+            Assert.Equal(new Franc(15, "CHF"), five.Times(3));
         }
     }
 
@@ -17,10 +17,9 @@ namespace interesting_times
         public Franc(int amount, string currency) : base(amount, currency)
         {
         }
-        public override string Currency => _currency;
-        public override Money Times(int multiplier)
+        public new Money Times(int multiplier)
         {
-            return new Franc(this.Amount * multiplier, null);
+            return new Money(this.Amount * multiplier, Currency);
         }
     }
 }

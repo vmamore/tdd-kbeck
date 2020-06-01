@@ -1,9 +1,9 @@
 namespace interesting_times
 {
-    public abstract class Money
+    public class Money
     {
         public int Amount { get; protected set; }
-        public abstract string Currency { get; }
+        public string Currency { get {return _currency;} }
         protected string _currency;
 
         public Money(int amount, string currency){
@@ -11,21 +11,23 @@ namespace interesting_times
             this._currency = currency;
         }
 
-        public static Dollar dollar(int amount){
-            return new Dollar(amount, "USD");
+        public static Dollar dollar(int amount, string currency){
+            return new Dollar(amount, currency);
         }
 
-        public static Franc franc(int amount){
-            return new Franc(amount, "CHF");
+        public static Franc franc(int amount, string currency){
+            return new Franc(amount, currency);
         }
 
-        public abstract Money Times(int multiplier);
+        public Money Times(int multiplier){
+            return null;
+        }
 
         public override bool Equals(object obj)
         {
             Money money = (Money)obj;
             return this.Amount == money.Amount &&
-                    this.GetType().Name.Equals(money.GetType().Name);
+                    this.Currency.Equals(money.Currency);
         }
     }
 }
