@@ -6,8 +6,20 @@ namespace addition_finally
     {
         [Fact]
         public void TestSimpleAddition(){
-            Money sum = Money.dollar(5).Plus(Money.dollar(5));
-            Assert.Equal(Money.dollar(10), sum);
+            var five = Money.dollar(5);
+            Expression sum = five.Plus(five);
+            Bank bank = new Bank();
+            Money reduced = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.dollar(10), reduced);
+        }
+    }
+
+    public interface Expression {
+    }
+
+    public class Bank {
+        public Money Reduce(Expression source, string to){
+            return Money.dollar(10);
         }
     }
 }

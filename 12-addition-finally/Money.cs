@@ -1,6 +1,6 @@
 namespace addition_finally
 {
-    public class Money
+    public class Money : Expression
     {
         public int Amount { get; protected set; }
         public string Currency { get {return _currency;} }
@@ -15,7 +15,7 @@ namespace addition_finally
             return new Money(amount, "USD");
         }
 
-        public Money Plus(Money addend){
+        public Expression Plus(Money addend){
             return new Money(this.Amount + addend.Amount, Currency);
         }
 
