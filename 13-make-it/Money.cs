@@ -16,7 +16,7 @@ namespace make_it
         }
 
         public Expression Plus(Money addend){
-            return new Money(this.Amount + addend.Amount, Currency);
+            return new Sum(this, addend);
         }
 
         public static Money franc(int amount){
@@ -32,6 +32,11 @@ namespace make_it
             Money money = (Money)obj;
             return this.Amount == money.Amount &&
                     this.Currency.Equals(money.Currency);
+        }
+
+        public Money Reduce(string to)
+        {
+            return this;
         }
     }
 }
