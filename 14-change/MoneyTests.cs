@@ -36,32 +36,18 @@ namespace change
             Money result = bank.Reduce(Money.dollar(1), "USD");
             Assert.Equal(Money.dollar(1), result);
         }
-    }
 
-    public interface Expression {
-        Money Reduce(string to);
-    }
-
-    public class Bank {
-        public Money Reduce(Expression source, string to){
-            if(source is Money) return source.Reduce(to);
-            Sum sum = source as Sum;
-            return sum.Reduce(to);
-        }
-    }
-
-    public class Sum : Expression{
-        public Money Augend {get;set;}
-        public Money Addend {get;set;}
-
-        public Sum(Money augend, Money addend){
-            this.Augend = augend;
-            this.Addend = addend;
+        [Fact]
+        public void TestReduceMoneyDifferentCurrency(){
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money result = bank.Reduce(Money.franc(2), "USD");
+            Assert.Equal(Money.dollar(1), result);
         }
 
-        public Money Reduce(string to){
-            int amount = Augend.Amount + Addend.Amount;
-            return new Money(amount, to);
+        [Fact]
+        public void TestIdentityRate(){
+            Assert.Equal(1, new Bank().Rate("USD", "USD"));
         }
     }
 }

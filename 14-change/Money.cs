@@ -34,9 +34,10 @@ namespace change
                     this.Currency.Equals(money.Currency);
         }
 
-        public Money Reduce(string to)
+        public Money Reduce(Bank bank, string to)
         {
-            return this;
+            int rate = bank.Rate(Currency, to);
+            return new Money(Amount/ rate, to);
         }
     }
 }
