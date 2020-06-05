@@ -17,7 +17,7 @@ namespace mixed_currencies
 
         public Expression Plus(Expression addend)
         {
-            return null
+            return null;
         }
     }
 }
