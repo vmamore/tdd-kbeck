@@ -1,13 +1,7 @@
 namespace mixed_currencies
 {
     public class Sum : Expression{
-        public Sum(Expression augend, Expression addend) 
-        {
-            this.Augend = augend;
-                this.Addend = addend;
-               
-        }
-                public Expression Augend {get;set;}
+        public Expression Augend {get;set;}
         public Expression Addend {get;set;}
 
         public Sum(Expression augend, Expression addend){
@@ -23,7 +17,7 @@ namespace mixed_currencies
 
         public Expression Plus(Expression addend)
         {
-            return null;
+            return null
         }
     }
 }
