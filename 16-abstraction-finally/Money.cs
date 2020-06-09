@@ -15,7 +15,7 @@ namespace abstraction_finally
             return new Money(amount, "USD");
         }
 
-        public Expression Plus(Money addend){
+        public Expression Plus(Expression addend){
             return new Sum(this, addend);
         }
 
@@ -38,11 +38,6 @@ namespace abstraction_finally
         {
             int rate = bank.Rate(Currency, to);
             return new Money(Amount/ rate, to);
-        }
-
-        public Expression Plus(Expression addend)
-        {
-            return new Sum(this, addend);
         }
     }
 }

@@ -81,5 +81,11 @@ namespace abstraction_finally
             Money result = bank.Reduce(sum, "USD");
             Assert.Equal(Money.dollar(20), result);
         }
+
+        [Fact]
+        public void TestPlusSameCurrencyReturnsMoney(){
+            Expression sum = Money.dollar(1).Plus(Money.dollar(1));
+            Assert.IsType<Money>(sum);
+        }
     }
 }
